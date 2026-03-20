@@ -159,22 +159,28 @@
   isToc: true,
   pageType: 'post'
 }</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><style>
-  /* 极客专属：毛玻璃悬浮播放器美化 */
-  .aplayer.aplayer-fixed {
-    background: rgba(255, 255, 255, 0.6) !important;
-    backdrop-filter: blur(10px) !important; /* 毛玻璃虚化特效 */
-    -webkit-backdrop-filter: blur(10px) !important;
-    border-radius: 12px !important; /* 圆角设计 */
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2) !important; /* 悬浮阴影 */
-    bottom: 20px !important; /* 底部悬浮抬高 */
-    left: 20px !important;   /* 左侧悬浮内推 */
-    max-width: 400px;
-  }
-  /* 完美适配暗黑模式 */
-  [data-theme="dark"] .aplayer.aplayer-fixed {
-    background: rgba(30, 30, 30, 0.6) !important;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5) !important;
-  }
+/* 修复隐身Bug：给底部加上半透明的黑色毛玻璃背板，既能透出背景图，又能看清文字 */
+#footer {
+  background: rgba(0, 0, 0, 0.6) !important; /* 0.6是透明度，数字越小越透明 */
+  backdrop-filter: blur(5px) !important; /* 加一点高级的虚化效果 */
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important; /* 顶部加一条极其骚气的极细反光边框 */
+}
+/* 极客专属：毛玻璃悬浮播放器美化 */
+.aplayer.aplayer-fixed {
+  background: rgba(255, 255, 255, 0.6) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2) !important;
+  bottom: 20px !important;
+  left: 20px !important;
+  max-width: 400px;
+}
+/* 完美适配暗黑模式 */
+[data-theme="dark"] .aplayer.aplayer-fixed {
+  background: rgba(30, 30, 30, 0.6) !important;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5) !important;
+}
 </style>
 <meta name="generator" content="Hexo 8.1.1"></head><body><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Kin Hanの小窝</span></a><a class="nav-page-title" href="/"><span class="site-name">Hello World</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">Hello World</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-03-18T10:10:42.183Z" title="发表于 2026-03-18 18:10:42">2026-03-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-03-18T10:10:42.183Z" title="更新于 2026-03-18 18:10:42">2026-03-18</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
