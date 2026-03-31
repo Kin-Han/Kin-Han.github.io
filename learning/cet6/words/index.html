@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://kin-han.github.io/img/avatar.jpg">
 <meta property="article:published_time" content="2026-03-31T10:11:29.000Z">
-<meta property="article:modified_time" content="2026-03-31T14:16:11.157Z">
+<meta property="article:modified_time" content="2026-03-31T14:23:01.307Z">
 <meta property="article:author" content="Kin Han">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://kin-han.github.io/img/avatar.jpg"><script type="application/ld+json"></script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://kin-han.github.io/learning/cet6/words/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
@@ -9062,43 +9062,48 @@ body {
 </tr>
 </tbody></table>
 <script data-pjax>
-  // 1. 系统初始化：每次进入自习室，重置防御锁
-  window.cet6Lock = false;
+  // 1. 系统初始化：状态锁，默认未锁死
+  window.isUnloading = false;
+  // 给你的房间起个专属代号，方便区分后续的其他房间
+  const roomName = 'cet6_words_ScrollPos';
 
-  // 2. 核心防御矩阵：监听鼠标点击
-  window.lockCet6Memory = function(e) {
-    // 只要你点击了任何带有跳转功能的链接（<a>标签）
-    let link = e.target.closest('a');
-    if (link) {
-      window.cet6Lock = true; // 极其关键：瞬间上锁！强制切断记忆引擎！
-    }
-  };
-  
-  // 部署防御矩阵（防堆叠处理）
-  document.removeEventListener('click', window.lockCet6Memory);
-  document.addEventListener('click', window.lockCet6Memory);
-
-  // 3. 数据记忆引擎
-  window.recordCet6Memory = function() {
-    // 绝密条件：只有在自习室，且【防御锁未开启】时，才允许写入数据！
-    if (window.location.pathname.includes('cet6') && window.cet6Lock === false) {
-      localStorage.setItem('cet6_ScrollPos', window.scrollY);
-    }
-  };
-
-  // 部署记忆引擎
-  window.removeEventListener('scroll', window.recordCet6Memory);
-  window.addEventListener('scroll', window.recordCet6Memory);
-
-  // 4. 引擎点火（精准空降）
-  if (window.location.pathname.includes('cet6')) {
-    let savedPos = localStorage.getItem('cet6_ScrollPos');
+  // 2. 核心功能：读取记忆并执行精准空降
+  function jumpToMemory() {
+    let savedPos = localStorage.getItem(roomName);
     if (savedPos && parseInt(savedPos) > 0) {
       setTimeout(function() {
         window.scrollTo({ top: parseInt(savedPos), behavior: 'smooth' });
-      }, 800); // 延迟 0.8 秒，等待页面元素加载完毕后丝滑跳跃
+      }, 800);
     }
   }
+
+  // 3. 核心功能：实时写入滚动记忆
+  function recordMemory() {
+    // 绝密条件：只有在未进入“卸载状态”时，才允许写入！
+    // 这样就能完美避开 PJAX 卸载页面前那次致命的自动回零动作！
+    if (!window.isUnloading) {
+      localStorage.setItem(roomName, window.scrollY);
+    }
+  }
+
+  // 4. 终极防御矩阵：监听页面的“死亡瞬间”
+  function lockMemory() {
+    window.isUnloading = true; // 页面即将消失，瞬间锁死！拒绝任何新的写入！
+  }
+
+  // 挂载各种离开页面的监听事件
+  // 兼容普通刷新、关闭窗口、以及浏览器的前进后退按钮
+  window.addEventListener('beforeunload', lockMemory);
+  window.addEventListener('pagehide', lockMemory);
+  // 特别针对 PJAX 的切页事件加固防线
+  document.addEventListener('pjax:send', lockMemory); 
+
+  // 5. 部署记忆引擎与防堆叠处理
+  window.removeEventListener('scroll', recordMemory);
+  window.addEventListener('scroll', recordMemory);
+
+  // 引擎点火！
+  jumpToMemory();
 </script></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Kin Han</div><div class="author-info-description">吾将上下而求索</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">1</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Kin-Han"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/22/%E4%BB%8B%E7%BB%8D/" title="介绍">介绍</a><time datetime="2026-03-21T16:54:07.000Z" title="发表于 2026-03-22 00:54:07">2026-03-22</time></div></div></div></div><div class="card-widget card-archives">
     <div class="item-headline">
       <i class="fas fa-archive"></i>
@@ -9118,7 +9123,7 @@ body {
         </li>
       
     </ul>
-  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">1</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-03-31T14:16:33.366Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By Kin Han</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><div id="my-aplayer"></div><script>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">1</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-03-31T14:23:24.394Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By Kin Han</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><div id="my-aplayer"></div><script>
   var ap = new APlayer({
     container: document.getElementById('my-aplayer'),
     fixed: true,
