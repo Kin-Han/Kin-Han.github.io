@@ -146,7 +146,7 @@
 }
 body {
   font-size: 18px !important; /* 默认通常是 14px，改成 16px 或者 18px 会极其舒适 */
-  font-family: "Microsoft YaHei", sans-serif !important; /* 强制使用微软雅黑 */
+  font-family: "-apple-system", "BlinkMacSystemFont", "PingFang SC", sans-serif !important; /* 苹果系统字体 + 常规无衬线字体，极其适合现代极客风格 */
 }
 /* --- 1. 修复页脚黑底 Bug：毛玻璃半透明化 --- */
 #footer {
@@ -170,9 +170,37 @@ body {
   background: rgba(30, 30, 30, 0.6) !important;
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5) !important;
 }
-/* --- 4. 卡片悬浮  --- */
-.card-widget:hover, .recent-post-item:hover {
-  transform: translateY(-5px) !important; 
+/* --- 4. 卡片设计  --- */
+/* --- 🌟 极客终极卡片装甲：区域精准分控 --- */
+
+/* 1. 全局物理底层 (所有卡片共享圆角、基础阴影与动画引擎) */
+#recent-posts > .recent-post-item,
+#aside-content .card-widget,
+.layout > div:first-child:not(.recent-posts) {
+  border-radius: 12px !important;                  
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05) !important; 
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important; 
+  border: 1px solid transparent !important; /* 预留透明边框，防止悬浮时边缘抖动 */
+}
+/* 2. 侧边栏专属：亚克力毛玻璃护甲 */
+#aside-content .card-widget {
+  background: rgba(255, 255, 255, 0.6) !important; /* 60%半透明白 */
+  backdrop-filter: blur(12px) !important;          /* 激活物理高斯模糊 */
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-color: rgba(255, 255, 255, 0.5) !important; /* 银色高光玻璃边缘 */
+}
+/* 侧边栏暗黑模式深度适配 */
+[data-theme="dark"] #aside-content .card-widget {
+  background: rgba(20, 20, 20, 0.6) !important; 
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+/* 3. 共享悬浮姿态：能量引擎统一发力！ */
+#recent-posts .recent-post-item:hover, 
+#aside-content .card-widget:hover,
+.layout > div:first-child:not(.recent-posts):hover {
+  transform: translateY(-6px) !important; 
+  box-shadow: 0 15px 35px rgba(255, 0, 0, 0.25), 0 5px 15px rgba(0, 0, 0, 0.08) !important; 
+  border-color: rgba(255, 0, 0, 0.3) !important; 
 }
 </style>
 <meta name="generator" content="Hexo 8.1.1"></head><body><div class="bg-animation" id="web_bg" style="background-image: url(/url(/img/global-bg.jpg)%20center%20center%20/%20cover%20no-repeat%20fixed);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/learning/"><i class="fa-fw fas fa-book-open"></i><span> 自习室</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Kin Hanの小窝</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/learning/"><i class="fa-fw fas fa-book-open"></i><span> 自习室</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">2026</h1></div></header><main class="layout" id="content-inner"><div id="archive"><div class="article-sort-title">全部文章 - 2</div><div class="article-sort"><div class="article-sort-item year">2026</div><div class="article-sort-item"><a class="article-sort-item-img" href="/2026/04/04/%E6%96%B0%E5%A2%9E%E3%80%90%E8%87%AA%E4%B9%A0%E5%AE%A4%E3%80%91/" title="新增【自习室】"><img src="/img/post2-cover.jpg" alt="新增【自习室】" onerror="this.onerror=null;this.src='/img/404.jpg'"></a><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2026-04-03T16:12:49.000Z" title="发表于 2026-04-04 00:12:49">2026-04-04</time></div><a class="article-sort-item-title" href="/2026/04/04/%E6%96%B0%E5%A2%9E%E3%80%90%E8%87%AA%E4%B9%A0%E5%AE%A4%E3%80%91/" title="新增【自习室】">新增【自习室】</a></div></div><div class="article-sort-item"><a class="article-sort-item-img" href="/2026/03/22/%E4%BB%8B%E7%BB%8D/" title="介绍"><img src="/img/post1-cover.jpg" alt="介绍" onerror="this.onerror=null;this.src='/img/404.jpg'"></a><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2026-03-21T16:54:07.000Z" title="发表于 2026-03-22 00:54:07">2026-03-22</time></div><a class="article-sort-item-title" href="/2026/03/22/%E4%BB%8B%E7%BB%8D/" title="介绍">介绍</a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Kin Han</div><div class="author-info-description">吾将上下而求索</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Kin-Han"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/04/04/%E6%96%B0%E5%A2%9E%E3%80%90%E8%87%AA%E4%B9%A0%E5%AE%A4%E3%80%91/" title="新增【自习室】"><img src="/img/post2-cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="新增【自习室】"/></a><div class="content"><a class="title" href="/2026/04/04/%E6%96%B0%E5%A2%9E%E3%80%90%E8%87%AA%E4%B9%A0%E5%AE%A4%E3%80%91/" title="新增【自习室】">新增【自习室】</a><time datetime="2026-04-03T16:12:49.000Z" title="发表于 2026-04-04 00:12:49">2026-04-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/03/22/%E4%BB%8B%E7%BB%8D/" title="介绍"><img src="/img/post1-cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="介绍"/></a><div class="content"><a class="title" href="/2026/03/22/%E4%BB%8B%E7%BB%8D/" title="介绍">介绍</a><time datetime="2026-03-21T16:54:07.000Z" title="发表于 2026-03-22 00:54:07">2026-03-22</time></div></div></div></div><div class="card-widget card-archives">
@@ -203,12 +231,12 @@ body {
         </li>
       
     </ul>
-  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">2</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-04-10T07:24:36.142Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By Kin Han</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><div id="my-aplayer"></div><script>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">2</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-04-10T10:30:02.257Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By Kin Han</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><div id="my-aplayer"></div><script>
   var ap = new APlayer({
     container: document.getElementById('my-aplayer'),
     fixed: true,
     autoplay: false,
-    theme: '#E50012', /* 🔴 Faiz 专属深红主题色 */
+    theme: '#E50012', /* 🔴 深红主题色 */
     audio: [
       {
         name: 'それでも歩いてる',
