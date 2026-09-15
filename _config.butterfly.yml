@@ -1,0 +1,185 @@
+# =======================================
+# 🦋 Butterfly 主题终极极客遥控器 🦋
+# =======================================
+
+# ---------------------------------------
+# 1. 全局视觉与核心色彩 (Visual & Colors)
+# ---------------------------------------
+# 网站快捷图标 (浏览器标签页上的小图标)
+favicon: /img/favicon.png
+# 网站的顶部大图 (首页背景)
+index_img: /img/bg.png
+# 网站全局背景
+background: "url(/img/global-bg.jpg) center center / cover no-repeat fixed"
+# =======================================
+# 🎨 全局核心色彩控制台
+# =======================================
+theme_color:
+  enable: true
+  main: "#5353a5"
+  paginator: "#22a5a5"
+  button_hover: "#cb1414"
+  text_selection: "#5353a580"
+# =======================================
+# ⌨️ 2. 动态交互引擎 (Interactive)
+# =======================================
+subtitle:
+  enable: true
+  effect: true
+  # 在这里配置多行轮换敲击的文字（会一行行打出来，再一行行删掉）
+  sub: 
+    - "若是你所期待"
+    - "定会得到强烈的回应"
+  # 底层极客微调参数
+  typewriter:
+    typeSpeed: 100   # 敲下每个字母的速度 (毫秒)
+    backSpeed: 50    # 删掉每个字母的速度 (毫秒)
+    startDelay: 300  # 页面加载后多久开始敲字
+    backDelay: 2000  # 敲完一句话后，停留多久开始删除
+    loop: true       # 开启无限循环敲击
+
+# ---------------------------------------
+# 🗺️ 3. 导航与侧边栏 (Navigation & Aside)
+# ---------------------------------------
+menu:
+  首页: / || fas fa-home
+  归档: /archives/ || fas fa-archive
+  标签: /tags/ || fas fa-tags
+  分类: /categories/ || fas fa-folder-open
+  自习室: /learning/ || fas fa-book-open
+  AI图库: /gallery/ || fas fa-image
+
+# 替换侧边栏的头像
+avatar:
+  img: /img/avatar.jpg
+
+# 侧边栏总控制台
+aside:
+  card_author:
+    enable: true
+    description: "吾将上下而求索" # 个人座右铭
+    button:
+      enable: true
+      icon: fab fa-github
+      text: Follow Me
+      link: https://github.com/Kin-Han  
+
+# ---------------------------------------
+# 4. 系统底层优化 (System & Performance)
+# ---------------------------------------
+
+# 开启 PJAX 无刷新加载技术（确保切页时音乐不断，提升加载速度）
+pjax:
+  enable: true
+
+# 【搜索主路由与雷达参数】
+search:
+  use: local_search
+
+local_search:
+  enable:            true
+  preload:           false
+  top_n_per_article: 1
+  unescape:          false
+
+# ---------------------------------------
+# 🎼 5. 媒体中心与全息装甲注入 (Media & CSS Inject)
+# ---------------------------------------
+
+# 开启 APlayer 基础支持
+aplayerInject:
+  enable: true
+  per_page: true
+
+inject:
+  head:
+    - '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">'
+    - |
+      <style>
+      /* --- [全局背景/字体设置] --- */
+      #web_bg {
+        background: url(/img/global-bg.jpg) center center / cover no-repeat fixed !important;
+      }
+      body {
+        font-size: 18px !important; /* 默认通常是 14px，改成 16px 或者 18px 会极其舒适 */
+        font-family: "-apple-system", "BlinkMacSystemFont", "PingFang SC", sans-serif !important; /* 苹果系统字体 + 常规无衬线字体，极其适合现代极客风格 */
+      }
+      /* --- [页脚毛玻璃半透明化] --- */
+      #footer {
+        background: rgba(0, 0, 0, 0.6) !important;
+        backdrop-filter: blur(5px) !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+      }
+      /* --- [播放器悬浮窗毛玻璃美化] --- */
+      .aplayer.aplayer-fixed {
+        background: rgba(255, 255, 255, 0.6) !important;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        border-radius: 12px !important;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2) !important;
+        bottom: 20px !important;
+        left: 20px !important;
+        max-width: 400px;
+      }
+      /* --- [完美适配夜间暗黑模式] --- */
+      [data-theme="dark"] .aplayer.aplayer-fixed {
+        background: rgba(30, 30, 30, 0.6) !important;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5) !important;
+      }
+      /* --- [卡片设计] --- */
+      
+      /* [全局物理底层 (所有卡片共享圆角、基础阴影与动画引擎)] */
+      #recent-posts > .recent-post-item,
+      #aside-content .card-widget,
+      .layout > div:first-child:not(.recent-posts) {
+        border-radius: 12px !important;                  
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05) !important; 
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important; 
+        border: 1px solid transparent !important; /* 预留透明边框，防止悬浮时边缘抖动 */
+      }
+      /* [侧边栏专属：亚克力毛玻璃护甲] */
+      #aside-content .card-widget {
+        background: rgba(255, 255, 255, 0.6) !important; /* 60%半透明白 */
+        backdrop-filter: blur(12px) !important;          /* 激活物理高斯模糊 */
+        -webkit-backdrop-filter: blur(12px) !important;
+        border-color: rgba(255, 255, 255, 0.5) !important; /* 银色高光玻璃边缘 */
+      }
+      /* [侧边栏暗黑模式深度适配] */
+      [data-theme="dark"] #aside-content .card-widget {
+        background: rgba(20, 20, 20, 0.6) !important; 
+        border-color: rgba(255, 255, 255, 0.08) !important;
+      }
+      /* [共享悬浮姿态] */
+      #recent-posts .recent-post-item:hover, 
+      #aside-content .card-widget:hover {
+        transform: translateY(-6px) !important; 
+        box-shadow: 0 15px 35px rgba(255, 0, 0, 0.25), 0 5px 15px rgba(0, 0, 0, 0.08) !important; 
+        border-color: rgba(255, 0, 0, 0.3) !important; 
+      }
+      </style>
+  bottom:
+    - '<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>'
+    - '<div id="my-aplayer"></div>'
+    - |
+      <script>
+        var ap = new APlayer({
+          container: document.getElementById('my-aplayer'),
+          fixed: true,
+          autoplay: false,
+          theme: '#E50012', /* 🔴 深红主题色 */
+          audio: [
+            {
+              name: 'それでも歩いてる',
+              artist: '日向坂46',
+              url: '/audio/それでも歩いてる.mp3',
+              cover: '/img/avatar.jpg'
+            },
+            {
+              name: '世末歌者',
+              artist: '双笙/封茗囧菌',
+              url: '/audio/世末歌者.mp3',
+              cover: '/img/avatar.jpg'
+            }
+          ]
+        });
+      </script>
