@@ -168,6 +168,10 @@ body {
   font-size: 18px !important; /* 默认通常是 14px，改成 16px 或者 18px 会极其舒适 */
   font-family: "-apple-system", "BlinkMacSystemFont", "PingFang SC", sans-serif !important; /* 苹果系统字体 + 常规无衬线字体，极其适合现代极客风格 */
 }
+/* --- [图库卡片标题不强制大写（覆盖主题默认 text-transform: uppercase）] --- */
+.gallery-group figcaption {
+  text-transform: none !important;
+}
 /* --- [页脚毛玻璃半透明化] --- */
 #footer {
   background: rgba(0, 0, 0, 0.6) !important;
