@@ -81,6 +81,7 @@ pjax:
 # 图片懒加载（滚动到可视区才加载，降低首屏流量）
 lazyload:
   enable: true
+  native: true
   field: site
 
 # 【搜索主路由与雷达参数】
