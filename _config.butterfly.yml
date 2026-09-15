@@ -166,6 +166,7 @@ inject:
           container: document.getElementById('my-aplayer'),
           fixed: true,
           autoplay: false,
+          preload: 'none',
           theme: '#E50012', /* 🔴 深红主题色 */
           audio: [
             {
