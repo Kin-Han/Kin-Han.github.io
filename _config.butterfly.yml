@@ -84,6 +84,11 @@ lazyload:
   native: true
   field: site
 
+# 图片灯箱：点击图片可放大单独浏览
+# fancybox = 经典灯箱（支持放大 + 左右翻页 + 底部缩略图）
+# medium_zoom = 轻量版（仅单图放大，无翻页）
+lightbox: fancybox
+
 # 【搜索主路由与雷达参数】
 search:
   use: local_search
