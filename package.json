@@ -29,5 +29,8 @@
     "hexo-tag-aplayer": "^3.0.4",
     "hexo-theme-butterfly": "^5.5.4",
     "hexo-theme-landscape": "^1.0.0"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.4"
   }
 }
