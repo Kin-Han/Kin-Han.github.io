@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /archives/
+Disallow: /page/
+
+Sitemap: https://kin-han.github.io/sitemap.xml
