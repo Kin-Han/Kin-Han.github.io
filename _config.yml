@@ -4,12 +4,12 @@
 
 # Site
 title: Kin Hanの小窝
-subtitle: ''
-description: ''
-keywords:
+subtitle: '吾将上下而求索'
+description: 'Kin Han 的个人博客，记录学习笔记、生活日常与 AI 创作，不限内容、随心记录。'
+keywords: 'Kin Han,个人博客,学习笔记,自习室,AI图库,随笔'
 author: Kin Han
 language: zh-CN
-timezone: ''
+timezone: Asia/Shanghai
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
@@ -110,3 +110,13 @@ search:
   field: post
   content: true
   format: html
+
+sitemap:
+  path: sitemap.xml
+
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+  content: true

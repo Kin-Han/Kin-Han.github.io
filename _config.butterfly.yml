@@ -68,6 +68,12 @@ aside:
 # 4. 系统底层优化 (System & Performance)
 # ---------------------------------------
 
+# 404 页面设置
+error_404:
+  enable: true
+  subtitle: '页面走丢了，去首页逛逛吧'
+  background: /img/404.jpg
+
 # 开启 PJAX 无刷新加载技术（确保切页时音乐不断，提升加载速度）
 pjax:
   enable: true
